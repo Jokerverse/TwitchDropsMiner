@@ -1,3 +1,4 @@
+### !! This is just a quick release that fixes the current error in the original Twitch Drops Miner by DevilXD untill the owner releases the new update !!
 # Twitch Drops Miner
 
 This application allows you to AFK mine timed Twitch drops, without having to worry about switching channels when the one you were watching goes offline, claiming the drops, or even receiving the stream data itself. This helps both you and Twitch save on bandwidth and hassle. Everyone wins!
