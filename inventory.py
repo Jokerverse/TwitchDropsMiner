@@ -168,6 +168,18 @@ class BaseDrop:
         result = await self._claim()
         if result:
             self.is_claimed = result
+            # Webhook logic
+            webhook_url = os.getenv("DISCORD_WEBHOOK")
+            if webhook_url:
+                import aiohttp
+                import asyncio
+            msg = f"🎁 **Claimed:** {self.campaign.game.name} - {self.rewards_text()}"
+            
+            async def send():
+                async with aiohttp.ClientSession() as s:
+                    await s.post(webhook_url, json={"content": msg})
+            
+            asyncio.create_task(send())
             claim_text = (
                 f"{self.campaign.game.name}\n"
                 f"{self.rewards_text()} "
